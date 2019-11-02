@@ -1,0 +1,11 @@
+<Button
+  class="btn btn-primary"
+  (click)="fetchUsers()">
+  Tryk her!
+</Button>
+
+<div *ngFor="let user of users">
+  <p>
+    {{ user.name }}
+  </p>
+</div>
