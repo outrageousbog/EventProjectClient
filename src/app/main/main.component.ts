@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WebService} from '../shared/web/WebService';
-import {User} from '../user/user';
+import {Event} from '../event/event';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +8,7 @@ import {User} from '../user/user';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  users: User[];
+  events: Event[];
 
   constructor(private web: WebService) { }
 
@@ -16,15 +16,10 @@ export class MainComponent implements OnInit {
   }
 
   fetchUsers() {
-    this.web.getUsers()
+    this.web.getEvents()
       .subscribe(
-        (data: User[]) => {
-          this.users = data;
-        },
-        (e) => {
-          console.log(e);
-        }
-      )
+        (data => this.events = data),
+        (e) => console.log(e));
   }
 
 }

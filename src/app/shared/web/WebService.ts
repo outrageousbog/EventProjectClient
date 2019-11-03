@@ -1,28 +1,29 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {User} from '../../user/user';
+import {Event} from '../../event/event';
 
 @Injectable()
 export class WebService {
-  private _configUrl = "https://localhost:5001/api/";
+  private configUrl = 'https://localhost:5001/api/';
 
   constructor(private http: HttpClient) {}
 
   public getEvents = () =>
-    this.http.get<Event[]>(this._configUrl + "event");
+    this.http.get<Event[]>(this.configUrl + 'event')
 
   public getUsers = () =>
-    this.http.get<User[]>( this._configUrl + "participant");
+    this.http.get<User[]>( this.configUrl + 'participant')
 
   public getEvent = (id: string) =>
-    this.http.get<Event>(this._configUrl + "event");
+    this.http.get<Event>(this.configUrl + 'event')
 
   public getUser = (id: string) =>
-    this.http.get<User>(this._configUrl + "participant");
+    this.http.get<User>(this.configUrl + 'participant')
 
   public createEvent = (event: Event) =>
-    this.http.post(this._configUrl + "event", event);
+    this.http.post(this.configUrl + 'event', event)
 
   public createUser = (user: User) =>
-    this.http.post(this._configUrl + "participant", user);
+    this.http.post(this.configUrl + 'participant', user)
 }

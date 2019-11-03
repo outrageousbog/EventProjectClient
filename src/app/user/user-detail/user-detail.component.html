@@ -1,3 +1,64 @@
-<p>
-  user-detail works!
-</p>
+<form [formGroup]="userForm"
+      (ngSubmit)="submitForm()">
+  <p>
+    <mat-form-field class="full-width">
+      <input type="text"
+             matInput
+             formControlName="name"
+             placeholder="Name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <span matPrefix>+45 &nbsp;</span>
+      <input type="tel"
+             matInput
+             formControlName="phone"
+             placeholder="Telephone">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input matInput
+             formControlName="email"
+             placeholder="Email">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <mat-label>Events</mat-label>
+      <mat-select formControlName="eventList" multiple>
+        <mat-option *ngFor="let event of events" [value]="event">{{event.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <button style="margin: 2vh" mat-flat-button color="primary">
+    Tilføj
+  </button>
+</form>
+
+
+
+<mat-expansion-panel *ngFor="let user of users">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{user.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{user.phone}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p *ngIf="user.email">
+    {{user.email}}
+  </p>
+  <p *ngIf="user.phone">
+    {{user.phone}}
+  </p>
+  <p>Events:</p>
+  <mat-list *ngFor="let event of user.eventList">
+    <mat-list-item>
+      {{event.name}} {{event.time | date : 'dd/MM yyyy hh:mm'}}
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>

@@ -4,8 +4,9 @@
   Tryk her!
 </Button>
 
-<div *ngFor="let user of users">
+<div *ngFor="let event of events">
   <p>
-    {{ user.name }}
+    {{ event.name }}
+    {{ event.description }}
   </p>
 </div>

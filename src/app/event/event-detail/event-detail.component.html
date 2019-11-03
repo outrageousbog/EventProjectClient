@@ -1,3 +1,46 @@
-<p>
-  event-detail works!
-</p>
+
+<form [formGroup]="eventForm"
+      (ngSubmit)="submitForm()">
+  <p>
+    <mat-form-field class="full-width">
+      <input type="text"
+             matInput
+             formControlName="name"
+             placeholder="Name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input type="text"
+             matInput
+             formControlName="description"
+             placeholder="Description">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="myDatepicker"
+             formControlName="time"
+             placeholder="Dato">
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+    </mat-form-field>
+  </p>
+  <button style="margin: 2vh" mat-flat-button color="primary">
+    Tilføj
+  </button>
+</form>
+<mat-divider></mat-divider>
+<mat-expansion-panel *ngFor="let event of events">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{event.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{event.time | date : 'dd/MM/yyyy hh:mm'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>
+    {{event.description}}
+  </p>
+</mat-expansion-panel>
