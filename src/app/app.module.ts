@@ -10,7 +10,7 @@ import {WebService} from './shared/web/WebService';
 import {AppRoutingModules} from './app-routing.modules';
 import { NavbarComponent } from './navbar/navbar.component';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatDatepickerModule,
   MatExpansionModule,
   MatFormFieldModule, MatIconModule,
@@ -19,7 +19,6 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserCreateComponent } from './user-create/user-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -29,7 +28,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     UserDetailComponent,
     EventDetailComponent,
     NavbarComponent,
-    UserCreateComponent
   ],
   imports: [
     HttpClientModule,
@@ -46,7 +44,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [
     WebService,

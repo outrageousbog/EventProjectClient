@@ -1,3 +1,7 @@
+<mat-card-title>
+  Users
+</mat-card-title>
+
 <form [formGroup]="userForm"
       (ngSubmit)="submitForm()">
   <p>
@@ -39,26 +43,28 @@
 </form>
 
 
-
-<mat-expansion-panel *ngFor="let user of users">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      {{user.name}}
-    </mat-panel-title>
-    <mat-panel-description>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{user.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{user.phone}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <hr>
+    <p *ngIf="user.email">
+      {{user.email}}
+    </p>
+    <p *ngIf="user.phone">
       {{user.phone}}
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <p *ngIf="user.email">
-    {{user.email}}
-  </p>
-  <p *ngIf="user.phone">
-    {{user.phone}}
-  </p>
-  <p>Events:</p>
-  <mat-list *ngFor="let event of user.eventList">
-    <mat-list-item>
-      {{event.name}} {{event.time | date : 'dd/MM yyyy hh:mm'}}
-    </mat-list-item>
-  </mat-list>
-</mat-expansion-panel>
+    </p>
+    <hr>
+    <p>Events:</p>
+    <mat-list *ngFor="let event of user.eventList">
+      <mat-list-item>
+        {{event.name}} {{event.time | date : 'dd/MM yyyy hh:mm'}}
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+

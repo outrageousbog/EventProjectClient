@@ -1,4 +1,6 @@
-
+<mat-card-title>
+  Events
+</mat-card-title>
 <form [formGroup]="eventForm"
       (ngSubmit)="submitForm()">
   <p>
@@ -30,7 +32,6 @@
     Tilføj
   </button>
 </form>
-<mat-divider></mat-divider>
 <mat-expansion-panel *ngFor="let event of events">
   <mat-expansion-panel-header>
     <mat-panel-title>
@@ -40,6 +41,7 @@
       {{event.time | date : 'dd/MM/yyyy hh:mm'}}
     </mat-panel-description>
   </mat-expansion-panel-header>
+  <hr>
   <p>
     {{event.description}}
   </p>
