@@ -1,12 +1,39 @@
-<Button
-  class="btn btn-primary"
-  (click)="fetchUsers()">
-  Tryk her!
-</Button>
-
-<div *ngFor="let event of events">
-  <p>
-    {{ event.name }}
-    {{ event.description }}
-  </p>
+<div style="padding: 5px">
+  <mat-card-title>
+    Eventside
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      Denne side er et showcase af et lille system til at oprette arrangementer og brugere.
+    </p>
+    <p>
+      Der er anvendt følgende til at lave systemet:
+    </p>
+    <hr>
+    <mat-card-subtitle>
+      Backend
+    </mat-card-subtitle>
+    <p>
+      er produceret i ASP.NET Core, hostet på Heroku vha. CircleCI, der via et script bygger Dockerimage og kører det.
+    </p>
+    <hr>
+    <mat-card-subtitle>
+      Database
+    </mat-card-subtitle>
+    <p>
+      er en NoSQL-database i form af MongoDB, hostet på et Mongo-cluster.
+    </p>
+    <hr>
+    <mat-card-subtitle>
+      Frontend
+    </mat-card-subtitle>
+    <p>
+      er produceret i Angular 8, hostet på Heroku.
+    </p>
+    <br>
+    <p>
+      Det er muligt at se brugere og oprette brugere og det samme for events ved at benytte sig af navigationen i toppen.
+    </p>
+  </mat-card-content>
 </div>
+

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WebService} from '../shared/web/WebService';
-import {Event} from '../event/event';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,18 +7,8 @@ import {Event} from '../event/event';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  events: Event[];
-
-  constructor(private web: WebService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
-  fetchUsers() {
-    this.web.getEvents()
-      .subscribe(
-        (data => this.events = data),
-        (e) => console.log(e));
-  }
-
 }

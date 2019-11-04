@@ -5,7 +5,7 @@ import {Event} from '../../event/event';
 
 @Injectable()
 export class WebService {
-  private configUrl = 'http://testprojectapi.herokuapp.com/api/';
+  private configUrl = 'https://testprojectapi.herokuapp.com/api/';
 
   constructor(private http: HttpClient) {}
 
